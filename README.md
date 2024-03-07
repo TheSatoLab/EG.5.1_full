@@ -1,4 +1,4 @@
-# EG.5.1_full
+# Virological characteristics of the SARS-CoV-2 Omicron EG.5.1 variant
 This repository contains the mutation cluster and viral count matrices for modeling the relationship between amino acid mutations in SARS-CoV-2 proteins and viral fitness of SARS-CoV-2 in the XBB lineage.\
 The supplemental tables for the GISAID PI_SET_231018pe, EPI_SET_231003ue, and EPI_SET_231003vx datasets are also deposited.\
 These data are used in the following study.
