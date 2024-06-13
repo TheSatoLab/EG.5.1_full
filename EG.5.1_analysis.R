@@ -583,8 +583,8 @@ plot(g.growth_rate)
 txt.growth.rate.name <- paste(out.prefix, ".", S_w, ".method3.growth_rate.txt", sep="")
 txt.growth.gain.name <- paste(out.prefix, ".", S_w, ".method3.growth_gain.txt", sep="")
 
-# write.table(stat.info.growth_rate, txt.growth.rate.name, col.names=T, row.names=F, sep="\t", quote=F)
-# write.table(stat.info.growth_gain, txt.growth.gain.name, col.names=T, row.names=F, sep="\t", quote=F)
+# write.table(stat.info.growth_gain, txt.growth.gain.name, col.names=T, row.names=F, sep="\t", quote=F) # Supplementary Table S1
+# write.table(stat.info.growth_rate, txt.growth.rate.name, col.names=T, row.names=F, sep="\t", quote=F) # Supplementary Table S2
 
 
 
