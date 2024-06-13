@@ -110,7 +110,7 @@ nextclade.filtered.selected <- fread("metadata_tsv_2023_08_21/231016_filtered_XB
 sort(table((nextclade.filtered.selected$Nextclade_pango)), decreasing=TRUE)
 
 ####### Create the list of genomic sequences for getting GISAID EPI dataset ID (excluding XBB.1.22)
-metadata.filtered.selected <- metadata.filtered %>% filter(Virus.name %in% nextclade.filtered.selected$seqName, Nextclade_pango %in% c("BA.1","BA.2","XBB","XBB.1","XBB.1.5","XBB.1.9","XBB.1.9.2","XBB.1.16","EG.5","EG.5.1","EG.5.1.1"))
+metadata.filtered.selected <- metadata.filtered %>% filter(Virus.name %in% nextclade.filtered.selected$seqName, Nextclade_pango %in% c("BA.1","BA.2","XBB","XBB.1","XBB.1.5","XBB.1.9","XBB.1.9.2","XBB.1.16","EG.5","EG.5.1","EG.5.1.1")) ### EPI_SET_231018pe
 # metadata.filtered.selected.epi_set.list <- paste(metadata.filtered.selected$Accession.ID)
 # write.table(metadata.filtered.selected.epi_set.list, "231016_EPI_set_list.selected_wt_BA.tsv", col.names=F, row.names=F, sep="\n", quote=F)
 
@@ -296,7 +296,7 @@ count.pango.df %>% filter(Nextclade_pango=="EG.5.1") %>% arrange(desc(count)) ##
 count.pango.df %>% filter(country=="USA") %>% arrange(desc(count)) ##### Count of all variants in USA
 
 ####### Filter the metadata of SARS-CoV-2 sequences collected in the USA
-# metadata.analyzed <- metadata.filtered %>% filter(Collection.date >= date.start, Collection.date <= date.end, country == "USA")
+# metadata.analyzed <- metadata.filtered %>% filter(Collection.date >= date.start, Collection.date <= date.end, country == "USA") ### EPI_SET_231003vx
 # write.table(metadata.analyzed, "metadata_tsv_2023_08_21/230920_filtered_XBB_USA_metadata.tsv", col.names=T, row.names=F, sep="\t", quote=F)
 metadata.analyzed <- read.delim("metadata_tsv_2023_08_21/230920_filtered_XBB_USA_metadata.tsv", header=T, sep="\t", check.names=T)
 sort(table((metadata.analyzed$Pango.lineage)), decreasing=TRUE)
@@ -632,9 +632,9 @@ mutation_freq_plot
 # dev.off()
 
 ####### Select representative genomic sequences from each XBB sublineage for phylogenetic tree reconstruction
-# metadata.filtered.phylogeny <- metadata.filtered %>% group_by(Pango.lineage) %>% slice_sample(n = 20) ????????????????????????
+# metadata.filtered.phylogeny <- metadata.filtered %>% group_by(Pango.lineage) %>% slice_sample(n = 20) ### EPI_SET_231003ue
 # write.table(metadata.filtered.phylogeny, "metadata_tsv_2023_08_21/230821_filtered_phylogeny_XBB_metadata.tsv", col.names=T, row.names=F, sep="\t", quote=F)
-metadata.filtered.phylogeny <- read.delim("metadata_tsv_2023_08_21/230821_filtered_phylogeny_XBB_metadata.tsv", header=T, sep="\t", check.names=T)
+metadata.filtered.phylogeny <- read.delim("metadata_tsv_2023_08_21/230821_filtered_phylogeny_XBB_metadata.tsv", header=T, sep="\t", check.names=T) 
 metadata.filtered.phylogeny <- metadata.filtered.phylogeny %>% mutate(Virus.name = str_replace_all(Virus.name, " ", "_"))
 sort(table((metadata.filtered.phylogeny$Pango.lineage)), decreasing=TRUE)
 
