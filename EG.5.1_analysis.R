@@ -114,6 +114,8 @@ metadata.filtered.selected <- metadata.filtered %>% filter(Virus.name %in% nextc
 # metadata.filtered.selected.epi_set.list <- paste(metadata.filtered.selected$Accession.ID)
 # write.table(metadata.filtered.selected.epi_set.list, "231016_EPI_set_list.selected_wt_BA.tsv", col.names=F, row.names=F, sep="\n", quote=F)
 
+####### Create the mut_long.tsv file first using the script summarize_mut_info.ver2_nextclade.py
+
 ####### Figure 1a: Frequency of mutations in proteins of selected lineages
 ##### Check frequency of mutations of interest
 filtered.mut.info.name <- "metadata_tsv_2023_08_21/231016_filtered_XBB_nextclade_selected_wt_BA.mut_long.tsv"
@@ -307,6 +309,8 @@ sort(table((metadata.analyzed$Pango.lineage)), decreasing=TRUE)
 # nextclade.analyzed <- nextclade.filtered %>% filter(seqName %in% metadata.analyzed$Virus.name)
 # write.table(nextclade.analyzed, "metadata_tsv_2023_08_21/230920_filtered_XBB_USA_nextclade.tsv", col.names=T, row.names=F, sep="\t", quote=F)
 nextclade.analyzed <- read.delim("metadata_tsv_2023_08_21/230920_filtered_XBB_USA_nextclade.tsv", header=T, sep="\t", check.names=T)
+
+####### Create the mut_long.tsv file first using the script summarize_mut_info.ver2_nextclade.py
 
 ####### Gather mutation data
 mut.info.name <- "metadata_tsv_2023_08_21/230920_filtered_XBB_USA_nextclade.mut_long.tsv"
@@ -685,8 +689,6 @@ XBB_tree_wt_mut_plot
 
 
 ####### Perform reconstruction of ancestral states to detect transitions of states between nodes
-##### Create metadata.mut_long.txt file first using the script summarize_mut_info.ver2_nextclade.py
-
 ##### Parameter setting
 min.num.descendants <- 10
 min.prop.descendants <- 0.5
